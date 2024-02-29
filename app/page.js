@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import Hero from './_components/Hero';
 
 export default function Home() {
   return (
     <div>
-      <h1>Init project</h1>
-      <Button>Button!</Button>
+      {/* Hero Section */}
+      <Hero />
     </div>
   );
 }
