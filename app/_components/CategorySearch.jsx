@@ -34,7 +34,7 @@ const CategorySearch = () => {
 
       {/* Display List of Category */}
       <div className='grid grid-cols-3 mt-5 md:grid-cols-4 lg:grid-cols-6'>
-        {categoryList.map(
+        {categoryList.length > 0 ? categoryList.map(
           (item, index) =>
             index < 6 && (
               <div
@@ -52,7 +52,14 @@ const CategorySearch = () => {
                 </label>
               </div>
             )
-        )}
+        ) : 
+        [1,2,3,4,5,6].map((item, index)=> (
+          <div key={index} className='h-[120px] w-[120px] bg-slate-200 m-2 rounded-lg animate-pulse'>
+
+          </div>
+
+          ))
+        }
       </div>
     </div>
   );
