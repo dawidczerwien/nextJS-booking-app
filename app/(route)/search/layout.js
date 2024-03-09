@@ -7,7 +7,6 @@ const layout = ({ children }) => {
       <div>
         <CategoryList />
       </div>
-      <div></div>
       <div className='col-span-3'>{children}</div>
     </div>
   );
