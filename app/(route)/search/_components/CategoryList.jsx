@@ -12,10 +12,12 @@ import {
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+
 function CategoryList() {
   const [categoryList, setCategoryList] = useState([]);
   const params = usePathname();
-  const category = params.split('/')[2];
+  const category = decodeURI(params.split('/')[2]);
+
   useEffect(() => {
     getCategoryList();
   }, []);
