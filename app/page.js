@@ -21,9 +21,9 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      {/* <Hero /> */}
+      <Hero />
       {/* Search bar + Categories */}
-      {/* <CategorySearch /> */}
+      <CategorySearch />
       {/* Popular Doctor List */}
       <DoctorList doctors={doctors}/>
     </div>
