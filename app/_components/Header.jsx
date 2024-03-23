@@ -46,9 +46,19 @@ const Header = () => {
         </ul>
       </div>
       {user ? (
-        <LogoutLink>
-          <Button variant='outline'>Log out</Button>
-        </LogoutLink>
+        <>
+          <Image
+            src={user?.picture}
+            alt='profile-image'
+            width={50}
+            height={50}
+            className='rounded-full'
+          />
+
+          <LogoutLink>
+            <Button variant='outline'>Log out</Button>
+          </LogoutLink>
+        </>
       ) : (
         <LoginLink>
           <Button>Sign in</Button>
