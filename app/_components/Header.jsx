@@ -1,8 +1,15 @@
+'use client';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
-import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
+import React, { useEffect } from 'react';
+import {
+  RegisterLink,
+  LoginLink,
+  LogoutLink,
+} from '@kinde-oss/kinde-auth-nextjs/components';
+import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
+
 const Header = () => {
   const Menu = [
     {
@@ -21,6 +28,9 @@ const Header = () => {
       path: '/',
     },
   ];
+
+  const { user } = useKindeBrowserClient();
+
   return (
     <div className='flex items-center justify-between p-4 shadow-sm'>
       <div className='flex items-center gap-10'>
@@ -28,13 +38,22 @@ const Header = () => {
         <ul className='md:flex gap-8 hidden'>
           {Menu.map((item, index) => (
             <Link href={item.path} key={index}>
-
-            <li className='hover:text-primary cursor-pointer hover:scale-105 transition-all ease-in-out'>{item.name}</li>
+              <li className='hover:text-primary cursor-pointer hover:scale-105 transition-all ease-in-out'>
+                {item.name}
+              </li>
             </Link>
           ))}
         </ul>
       </div>
-      <LoginLink><Button>Sign in</Button></LoginLink>
+      {user ? (
+        <LogoutLink>
+          <Button variant='outline'>Log out</Button>
+        </LogoutLink>
+      ) : (
+        <LoginLink>
+          <Button>Sign in</Button>
+        </LoginLink>
+      )}
     </div>
   );
 };
