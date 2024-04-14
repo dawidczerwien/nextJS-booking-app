@@ -3,6 +3,28 @@ import Image from 'next/image';
 import { GraduationCap, MapPin } from 'lucide-react'
 
 const DoctorDetail = ({ doctor }) => {
+  const socialMediaList = [
+    {
+      id: 1,
+      icon: '/youtube.png',
+      url: '',
+    },
+    {
+      id: 2,
+      icon: '/linkedin.png',
+      url: '',
+    },
+    {
+      id: 3,
+      icon: '/twitter.png',
+      url: '',
+    },
+    {
+      id: 4,
+      icon: '/facebook.png',
+      url: '',
+    },
+  ];
   return (
     <div className='grid sm:grid-cols-1 md:grid-cols-4'>
       <div className='col-span-3 grid grid-cols-1 md:grid-cols-3'>
